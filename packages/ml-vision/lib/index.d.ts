@@ -1207,6 +1207,7 @@ export const VisionDocumentTextRecognizedBreakType: FirebaseVisionTypes.Statics[
 export const VisionCloudLandmarkRecognizerModelType: FirebaseVisionTypes.Statics['VisionCloudLandmarkRecognizerModelType'];
 
 export default defaultExport;
+export const foo: 42;
 
 /**
  * Attach namespace to `firebase.` and `FirebaseApp.`.

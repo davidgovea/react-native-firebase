@@ -552,3 +552,4 @@ export const utils: ReactNativeFirebase.FirebaseModuleWithStatics<Utils.Module, 
 
 declare const module: ReactNativeFirebase.Module;
 export default module;
+export const foo: 42;

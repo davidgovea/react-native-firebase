@@ -160,6 +160,7 @@ export const firebase: ReactNativeFirebase.Module & {
 };
 
 export default defaultExport;
+export const foo: 42;
 
 /**
  * Attach namespace to `firebase.` and `FirebaseApp.`.
