@@ -68,6 +68,8 @@ jobs:
           npx react-native init template
           cd template
           yarn add patch-package --save-dev
+          echo "Printing template directory contents to check for lockfiles"
+          ls -la
           mkdir patches || true
           for PACKAGE in $PACKAGE_LIST; do
             echo "Installing package $PACKAGE into fresh template app, then clobbering with PR version"
@@ -77,6 +79,8 @@ jobs:
             tar -zxf $HOME/packages/react-native-firebase-${PACKAGE}-v*
             mv package $PACKAGE
             popd
+            echo "Printing template directory contents to check for lockfiles"
+            ls -la
             npx patch-package @react-native-firebase/$PACKAGE || true
           done
           ls -la $HOME/template/patches
@@ -87,9 +91,9 @@ jobs:
         with:
           name: patches
           path: ~/template/patches/
-  
+
       # create a comment on the PR and any related issues with a direct link to the archive,
-      # a call for testers, and perhaps a paste-able set of commands to install them 
+      # a call for testers, and perhaps a paste-able set of commands to install them
       # (mkdir patches, curl -o etc, npx patch-package)
       # You need an artifact id to get a download link for it.
       # You need a workflow run id to get an artifact id.
