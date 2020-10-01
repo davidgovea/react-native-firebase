@@ -81,6 +81,8 @@ jobs:
             popd
             echo "Printing template directory contents to check for lockfiles"
             ls -la
+            echo "Checking for $PACKAGE in lockfile"
+            cat yarn.lock | grep "@react-native-firebase/$PACKAGE"
             npx patch-package --use-yarn @react-native-firebase/$PACKAGE || true
           done
           ls -la $HOME/template/patches
